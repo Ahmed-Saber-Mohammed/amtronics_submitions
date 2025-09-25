@@ -61,13 +61,15 @@ class _LandingPageState extends State<LandingPage>
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: FadeTransition(
         opacity: _fadeAnimation,
-        child: const SingleChildScrollView(
-          child: Column(
-            children: [
-              HeroSection(),
-              SimpleFooter(),
-            ],
-          ),
+        child: const Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: const HeroSection(),
+              ),
+            ),
+             SimpleFooter(),
+          ],
         ),
       ),
     );
@@ -81,7 +83,7 @@ class SimpleFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.only(top: 48, bottom: 24),
+      padding: const EdgeInsets.only(top: 24, bottom: 0),
       child: Text(
         '© 2025 AM TRONICS. All rights reserved.',
         textAlign: TextAlign.center,
