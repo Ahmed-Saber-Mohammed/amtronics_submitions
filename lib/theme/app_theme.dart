@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const Color primaryBlue = Color(0xFF2196F3);
-  static const Color accentOrange = Color(0xFFFF9800);
-  static const Color accentPurple = Color(0xFF9C27B0);
-  static const Color accentGreen = Color(0xFF4CAF50);
-  static const Color lightBackground = Color(0xFFF8F9FA);
-  static const Color lightSurface = Color(0xFFFFFFFF);
+  static const Color primaryBlue = Color(0xFF0052CC); // Professional corporate blue
+  static const Color secondaryBlue = Color(0xFF2684FF); // Lighter accent blue
+  static const Color neutralGray = Color(0xFF42526E); // Professional text gray
+  static const Color lightGray = Color(0xFFF4F5F7); // Subtle background
+  static const Color pureWhite = Color(0xFFFFFFFF);
+  static const Color darkText = Color(0xFF172B4D); // High contrast text
 
   static ThemeData get lightTheme {
     return ThemeData(
@@ -14,43 +14,46 @@ class AppTheme {
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
         primary: primaryBlue,
-        secondary: accentOrange,
-        tertiary: accentPurple,
-        surface: lightBackground,
-        surfaceContainer: lightSurface,
-        onSurface: Color(0xFF1A1A1A),
-        onPrimary: Colors.white,
-        outline: Color(0xFFE1E5E9),
+        secondary: secondaryBlue,
+        surface: pureWhite,
+        surfaceContainer: lightGray,
+        onSurface: darkText,
+        onPrimary: pureWhite,
+        outline: Color(0xFFDFE1E6),
       ),
       textTheme: _textTheme.apply(
-        bodyColor: const Color(0xFF1A1A1A),
-        displayColor: const Color(0xFF1A1A1A),
+        bodyColor: darkText,
+        displayColor: darkText,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryBlue,
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          foregroundColor: pureWhite,
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
           textStyle: const TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
+            letterSpacing: 0.5,
           ),
+          elevation: 2,
+          shadowColor: primaryBlue.withOpacity(0.3),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: primaryBlue,
           side: const BorderSide(color: primaryBlue, width: 2),
-          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
           textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 0.5,
           ),
         ),
       ),
@@ -63,19 +66,19 @@ class AppTheme {
     displayLarge: TextStyle(
       fontSize: 64,
       fontWeight: FontWeight.w700,
-      letterSpacing: -0.02,
+      letterSpacing: -1.5,
       height: 1.1,
     ),
     displayMedium: TextStyle(
       fontSize: 48,
       fontWeight: FontWeight.w600,
-      letterSpacing: -0.01,
+      letterSpacing: -0.5,
       height: 1.2,
     ),
     headlineLarge: TextStyle(
-      fontSize: 32,
+      fontSize: 36,
       fontWeight: FontWeight.w600,
-      letterSpacing: -0.01,
+      letterSpacing: -0.25,
       height: 1.3,
     ),
     headlineMedium: TextStyle(
@@ -87,11 +90,13 @@ class AppTheme {
       fontSize: 18,
       fontWeight: FontWeight.w400,
       height: 1.6,
+      letterSpacing: 0.15,
     ),
     bodyMedium: TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w400,
       height: 1.5,
+      letterSpacing: 0.25,
     ),
   );
 }
